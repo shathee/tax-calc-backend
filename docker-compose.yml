@@ -6,3 +6,24 @@ services:
       - "8000:8000"
     volumes:
       - ./:/usr/src/app
+    depends_on:
+      - tax-db
+    environment:
+      DB_HOST: tax-db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: postgres
+  tax-db:
+    image: postgres:14.6
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+volumes:
+  db:
+    driver: local
