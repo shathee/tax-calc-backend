@@ -1,12 +1,13 @@
-FROM node:18
+FROM node:18-alpine
 
-RUN mkdir -p /app
+
 WORKDIR /app
-COPY package*.json .
+
+COPY package.json /app
+
 RUN npm install
-RUN ls -la
-EXPOSE 8000
-COPY ./.dockerignore .
-COPY ./.gitignore .
-COPY ./app.js .
-CMD [ "node", "app.js" ]
+RUN npm install -g nodemon
+COPY . /app
+
+EXPOSE 8080
+CMD [ "npm", "start" ]
