@@ -10,9 +10,15 @@
   "keywords": [],
   "author": "Baki Ruhunnabi",
   "license": "ISC",
-  "dependencies":{
-    "express":"4.18.2",
-    "pg":"8.8.0",
-    "dotenv": "16.0.3"
+  "dependencies": {
+    "express": "4.18.2",
+    "pg": "8.8.0",
+    "dotenv": "16.0.3",
+    "swagger-ui-express": "^4.4.0",
+    "body-parser": "1.20.1",
+    "@prisma/client": "4.8.0"
+  },
+  "devDependencies": {
+    "prisma": "4.8.0"
   }
 }
