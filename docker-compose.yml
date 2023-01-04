@@ -1,21 +1,21 @@
 version: "3"
 services:
-  tax-api:
-    build: .
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./:/app
-      - /app/node_modules
-    depends_on:
-      - tax-db
-    restart: always
-    environment:
-      DB_HOST: ${DB_HOST}
-      DB_PORT: ${DB_PORT}
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_NAME: ${DB_NAME}
+  # tax-api:
+  #   build: .
+  #   ports:
+  #     - "8000:8000"
+  #   volumes:
+  #     - ./:/app
+  #     - node_modules:/app/node_modules
+  #   depends_on:
+  #     - tax-db
+  #   restart: always
+  #   environment:
+  #     DB_HOST: ${DB_HOST}
+  #     DB_PORT: ${DB_PORT}
+  #     DB_USER: ${DB_USER}
+  #     DB_PASSWORD: ${DB_PASSWORD}
+  #     DB_NAME: ${DB_NAME}
   tax-db:
     image: postgres:14.6
     restart: always

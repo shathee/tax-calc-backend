@@ -9,7 +9,7 @@ COPY package*.json ./
 COPY prisma ./prisma/
 
 RUN npm install
-RUN npm install -g nodemon
+# RUN npm install -g nodemon
 RUN npx prisma generate
 #RUN npx prisma init --datasource-provider postgresql
 COPY . .

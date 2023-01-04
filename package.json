@@ -2,24 +2,34 @@
   "name": "tax-calc-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
-    "build": "npm build"
+    "start": "ts-node app.ts",
+    "dev": "./node_modules/nodemon/bin/nodemon.js"
   },
   "keywords": [],
   "author": "Baki Ruhunnabi",
   "license": "ISC",
   "dependencies": {
-    "express": "4.18.2",
-    "pg": "8.8.0",
-    "dotenv": "16.0.3",
-    "swagger-ui-express": "^4.4.0",
+    "@prisma/client": "4.8.0",
     "body-parser": "1.20.1",
-    "@prisma/client": "4.8.0"
+    "dotenv": "16.0.3",
+    "express": "4.18.2",
+    "nodemon": "^2.0.20",
+    "pg": "8.8.0",
+    "swagger-ui-express": "^4.4.0"
   },
   "devDependencies": {
-    "prisma": "4.8.0"
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/express": "^4.17.15",
+    "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
+    "eslint": "^8.31.0",
+    "prettier": "^2.8.1",
+    "prisma": "4.8.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
   }
 }
