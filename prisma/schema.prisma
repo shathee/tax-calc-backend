@@ -7,8 +7,50 @@ generator client {
     provider = "prisma-client-js"
 }
 
-model Users {
+model User {
     id  Int @id @default(autoincrement())
-    email   String  @unique
-    name String?
+    email String @unique
+    password String
+    role String?
+    taxpayer TaxPayer?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("users")
+}
+
+
+model TaxPayer {
+    id  Int @id @default(autoincrement())
+    frist_name String
+    middle_name String?
+    last_name String
+    gender String?
+    tin_12 String                                                                                                                              
+    tin_old String                                                                                                                              
+    nid String                                                                                                                              
+    tax_circle String                                                                                                                              
+    tax_zone String    
+    residance_status String
+    contact Json?
+    dob DateTime
+    user   User @relation(fields: [userId], references: [id])
+    userId Int  @unique 
+    taxreturns TaxReturn[]
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("tax_payers")
+}
+
+model TaxReturn {
+    id  Int @id @default(autoincrement())
+    assesmentYear String
+    incomeYear String
+    taxPayer  TaxPayer @relation(fields: [taxpayerId], references: [id])
+    taxpayerId Int @unique 
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("tax_returns")
 }
